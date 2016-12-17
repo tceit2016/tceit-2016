@@ -1,0 +1,53 @@
+#To create a copy a repository, to your local
+git clone https://github.com/tceit2016/tceit-2016.git
+
+#sync, branches
+git fetch --all
+
+#sync remote and local repository
+git pull
+
+#stage a file for commit
+git add <fileName>
+
+#add all modified file to stage
+git add .
+
+#status of your repository
+git status
+
+#commit changes to your local repository
+git commit -m "<comments>"
+
+#push changes from local to remote
+git push origin/master
+
+#if your out of sync, when push
+#use this command when you have committed changes to your local repository
+git pull --rebase
+
+#if the is a rebase problem
+
+git rebase --abort
+
+git reset HEAD --hard
+
+git reset --hard
+
+#if you have unstaged changes, then 
+git stash 
+
+git pull
+
+git stash pop
+
+##rebase 
+
+#if you see a "both modified" file when you do a git status
+git add . or git add <file>
+
+git rebase --continue
+
+#to stop rebase
+git rebase --abort
+

@@ -113,4 +113,8 @@
     <servlet-name>ExampleAjax</servlet-name>
     <url-pattern>/exampleAjax</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>ExampleAjax</servlet-name>
+    <url-pattern>/autocomplete</url-pattern>
+  </servlet-mapping>
 </web-app>

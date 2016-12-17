@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ExampleAjax extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
-	private ComposerData compData = new ComposerData();
-	private HashMap<String,Composer> composers = compData.getComposers();
+	private UserData compData = new UserData();
+	private HashMap<String,User> users = compData.getComposers();
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -55,25 +55,25 @@ public class ExampleAjax extends HttpServlet {
 	        // check if user sent empty string
 	        if (!targetId.equals("")) {
 
-	            Iterator it = composers.keySet().iterator();
+	            Iterator it = users.keySet().iterator();
 
 	            while (it.hasNext()) {
 	                String id = (String) it.next();
-	                Composer composer = (Composer) composers.get(id);
+	                User user = (User) users.get(id);
 
 	                if ( // targetId matches first name
-	                     composer.getFirstName().toLowerCase().startsWith(targetId) ||
+	                     user.getFirstName().toLowerCase().startsWith(targetId) ||
 	                     // targetId matches last name
-	                     composer.getLastName().toLowerCase().startsWith(targetId) ||
+	                     user.getLastName().toLowerCase().startsWith(targetId) ||
 	                     // targetId matches full name
-	                     composer.getFirstName().toLowerCase().concat(" ")
-	                        .concat(composer.getLastName().toLowerCase()).startsWith(targetId)) {
+	                     user.getFirstName().toLowerCase().concat(" ")
+	                        .concat(user.getLastName().toLowerCase()).startsWith(targetId)) {
 
-	                    sb.append("<composer>");
-	                    sb.append("<id>" + composer.getId() + "</id>");
-	                    sb.append("<firstName>" + composer.getFirstName() + "</firstName>");
-	                    sb.append("<lastName>" + composer.getLastName() + "</lastName>");
-	                    sb.append("</composer>");
+	                    sb.append("<user>");
+	                    sb.append("<id>" + user.getId() + "</id>");
+	                    sb.append("<firstName>" + user.getFirstName() + "</firstName>");
+	                    sb.append("<lastName>" + user.getLastName() + "</lastName>");
+	                    sb.append("</user>");
 	                    namesAdded = true;
 	                }
 	            }
@@ -82,7 +82,7 @@ public class ExampleAjax extends HttpServlet {
 	        if (namesAdded) {
 	            response.setContentType("text/xml");
 	            response.setHeader("Cache-Control", "no-cache");
-	            response.getWriter().write("<composers>" + sb.toString() + "</composers>");
+	            response.getWriter().write("<users>" + sb.toString() + "</users>");
 	        } else {
 	            //nothing to show
 	            response.setStatus(HttpServletResponse.SC_NO_CONTENT);
@@ -91,9 +91,9 @@ public class ExampleAjax extends HttpServlet {
 	    if (action.equals("lookup")) {
 
 	        // put the target composer in the request scope to display 
-	        if ((targetId != null) && composers.containsKey(targetId.trim())) {
-	            request.setAttribute("composer", composers.get(targetId));
-	            context.getRequestDispatcher("/composer.jsp").forward(request, response);
+	        if ((targetId != null) && users.containsKey(targetId.trim())) {
+	            request.setAttribute("user", users.get(targetId));
+	            context.getRequestDispatcher("/user.jsp").forward(request, response);
 	        }
 	    }
 	}

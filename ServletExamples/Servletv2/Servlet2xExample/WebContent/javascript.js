@@ -119,7 +119,7 @@ function parseMessages(responseXML) {
 		return false;
 	} else {
 
-		var composers = responseXML.getElementsByTagName("composers")[0];
+		var composers = responseXML.getElementsByTagName("users")[0];
 
 		if (composers.childNodes.length > 0) {
 			completeTable.setAttribute("bordercolor", "black");

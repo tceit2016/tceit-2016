@@ -1,13 +1,13 @@
 package edu.tce.it.ajax;
 
-public class Composer {
+public class User {
 
 	private String id;
 	private String firstName;
 	private String lastName;
 	private String category;
 
-	public Composer(String id, String firstName, String lastName, String category) {
+	public User(String id, String firstName, String lastName, String category) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;

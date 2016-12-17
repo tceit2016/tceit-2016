@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <html>
 <head>
-<title>Composer Information</title>
+<title>User Information</title>
 
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
@@ -10,23 +10,23 @@
 
 	<table>
 		<tr>
-			<th colspan="2">Composer Information</th>
+			<th colspan="2">User Information</th>
 		</tr>
 		<tr>
 			<td>First Name:</td>
-			<td>${requestScope.composer.firstName}</td>
+			<td>${requestScope.user.firstName}</td>
 		</tr>
 		<tr>
 			<td>Last Name:</td>
-			<td>${requestScope.composer.lastName}</td>
+			<td>${requestScope.user.lastName}</td>
 		</tr>
 		<tr>
 			<td>ID:</td>
-			<td>${requestScope.composer.id}</td>
+			<td>${requestScope.user.id}</td>
 		</tr>
 		<tr>
-			<td>Category:</td>
-			<td>${requestScope.composer.category}</td>
+			<td>Place:</td>
+			<td>${requestScope.user.category}</td>
 		</tr>
 	</table>
 
