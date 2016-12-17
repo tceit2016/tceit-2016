@@ -1,2 +1,2 @@
-test me
+test me --valid
 test gpk
