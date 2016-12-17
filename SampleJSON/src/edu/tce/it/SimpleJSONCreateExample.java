@@ -22,7 +22,7 @@ public class SimpleJSONCreateExample {
 
 	try {
 
-		FileWriter file = new FileWriter("d:\\test.json");
+		FileWriter file = new FileWriter("test.json");
 		file.write(obj.toString());
 		file.flush();
 		file.close();

@@ -16,7 +16,7 @@ public class SimpleJSONReadExample {
 
 		try {
 
-			Object obj = parser.parse(new FileReader("d:\\test.json"));
+			Object obj = parser.parse(new FileReader("test.json"));
 
 			JSONObject jsonObject = (JSONObject) obj;
 
