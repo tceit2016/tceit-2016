@@ -1,0 +1,30 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MultiplyService WSDL service -->
+
+  <service name="Multiply" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Multiply.tce.edu"/>
+      <parameter name="wsdlServiceElement" value="MultiplyService"/>
+      <parameter name="schemaQualified" value="http://Multiply.tce.edu"/>
+      <parameter name="wsdlServicePort" value="Multiply"/>
+      <parameter name="className" value="edu.tce.Multiply.MultiplySoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Multiply"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="doMultiply" qname="operNS:doMultiply" xmlns:operNS="http://Multiply.tce.edu" returnQName="retNS:doMultiplyReturn" xmlns:retNS="http://Multiply.tce.edu" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:x" xmlns:pns="http://Multiply.tce.edu" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:y" xmlns:pns="http://Multiply.tce.edu" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="doMultiply"/>
+
+  </service>
+</deployment>
