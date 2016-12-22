@@ -1,0 +1,77 @@
+Angular JS
+-----------
+
+AngularJS is a JavaScript framework. It can be added to an HTML page with a <script> tag.
+AngularJS extends HTML attributes with Directives, and binds data to HTML with Expressions.
+Basics of AngularJS: directives, expressions, filters, modules, and controllers
+Supports: Events, DOM, Forms, Input, Validation, Http ...
+
+Prerequisites:
+HTML
+CSS
+JavaScript
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="">
+  <p>Name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}</h1>
+</div>
+
+</body>
+</html>
+
+Angular JS 2
+
+Angular applications are made up of components
+A component is the combination of an HTML template and a component class that controls a portion of the screen
+
+local setup
+
+git clone https://github.com/angular/quickstart.git quickstart
+cd quickstart
+npm install
+npm start
+
+or
+
+https://github.com/angular/quickstart/archive/master.zip
+
+cd quickstart
+npm install
+npm start
+
+Basis files
+app.component.ts
+this is the root component
+
+app.module.ts
+the root module that tells Angular how to assemble the application
+
+app.main.ts
+Compiles the application with the JiT compiler and bootstraps the application to run in the browser
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `<h1>Hello {{name}}</h1>`
+})
+export class AppComponent { name = 'Angular'; }
+
+the component makes a metadata, this defines how the HTML template and component class work together
+
+The selector property tells Angular to display the component inside a custom <my-app> tag in the index.html
+
+<my-app>Loading AppComponent content here ...</my-app>
+
+The template property defines a message inside an <h1> header. 
+The message starts with "Hello" and ends with {{name}}, which is an Angular interpolation binding expression. 
+At runtime, Angular replaces {{name}} with the value of the component's name property. 
+Interpolation binding is one of many Angular features you'll discover in this documentation.
+

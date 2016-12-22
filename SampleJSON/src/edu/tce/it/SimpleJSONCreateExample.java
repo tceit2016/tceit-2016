@@ -10,7 +10,7 @@ public class SimpleJSONCreateExample {
      public static void main(String[] args) {
 
 	JSONObject obj = new JSONObject();
-	obj.put("name", "kumar");
+	obj.put("name", "Alwin");
 	obj.put("age", new Integer(21));
 
 	JSONArray list = new JSONArray();
